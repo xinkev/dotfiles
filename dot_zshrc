@@ -1,0 +1,39 @@
+# Powerlevel10k Instant Prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export LANG=en_US.UTF-8
+export EDITOR='nvim'
+export DIFFPROG='nvim -d'
+export FZF_DEFAULT_COMMAND='rg --no-messages --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS="--no-separator --layout=reverse --inline-info"
+
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+
+setopt BANG_HIST EXTENDED_HISTORY INC_APPEND_HISTORY SHARE_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_DUPS HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS HIST_IGNORE_SPACE HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS HIST_VERIFY
+setopt glob_dots
+
+unsetopt autocd beep notify
+
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Load completions
+autoload -Uz compinit && compinit -u
+if command -v gdircolors &>/dev/null; then
+  eval "$(gdircolors)"
+fi
+
+# Powerlevel10k
+[[ -f ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme ]] && source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+[[ -f ~/.config/zsh/p10k.zsh ]] && source ~/.config/zsh/p10k.zsh
+
+# Source split config
+source ~/.config/zsh/keybinds.zsh
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/plugins.zsh
