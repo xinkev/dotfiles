@@ -1,0 +1,28 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+xcode-select --install
+
+if which -s brew; then
+    echo "Homebrew is already installed"
+else 
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Install programs with Homebrew
+brew bundle --file=/dev/stdin <<EOF
+brew "git"
+brew "chezmoi"
+brew "coreutils"
+brew "fzf"
+brew "mise"
+cask "maccy"
+cask "xcodes-app"
+cask "sourcetree"
+cask "firefox@developer-edition"
+cask "visual-studio-code"
+cask "jetbrains-toolbox"
+cask "wezterm"
+EOF
+
+{{ end -}}
