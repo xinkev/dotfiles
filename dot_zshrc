@@ -37,3 +37,20 @@ fi
 source ~/.config/zsh/keybinds.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/plugins.zsh
+
+
+# Set Android SDK location
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+# Optional: For legacy compatibility
+export ANDROID_SDK_ROOT="$ANDROID_HOME"
+
+# Add Android tools to PATH
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# Optional: Emulator and AVD directories
+# export ANDROID_USER_HOME="$HOME/.android"
+# export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
+# export ANDROID_AVD_HOME="$ANDROID_EMULATOR_HOME/avd"
