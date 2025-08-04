@@ -54,3 +54,5 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # export ANDROID_USER_HOME="$HOME/.android"
 # export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
 # export ANDROID_AVD_HOME="$ANDROID_EMULATOR_HOME/avd"
+
+eval "$(zoxide init zsh)"
