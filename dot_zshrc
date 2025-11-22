@@ -56,3 +56,6 @@ export PATH="$PATH:$ANDROID_HOME/platform-tools"
 # export ANDROID_AVD_HOME="$ANDROID_EMULATOR_HOME/avd"
 
 eval "$(zoxide init zsh)"
+
+XDG_DATA_DIRS="/opt/homebrew/share:$XDG_DATA_DIRS"
+eval "$(mise activate zsh)"
