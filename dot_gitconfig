@@ -1,6 +1,6 @@
 [user]
-	email = "xinkev"
-	name = "11447571+xinkev@users.noreply.github.com"
+	name = "xinkev"
+	email = "11447571+xinkev@users.noreply.github.com"
 [core]
 	excludesfile = /Users/xinkev/.gitignore_global
 [difftool "sourcetree"]
